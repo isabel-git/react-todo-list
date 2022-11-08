@@ -11,7 +11,7 @@ export function ToDoList() {
     const todo = todoInput.value;
     setTodos((t) => {
       if (!todo) {
-        return [];
+        return t;
       }
       return [...t, todo];
     });
