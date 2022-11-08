@@ -6,27 +6,32 @@ export function ToDoList() {
 
   function addNewTodo(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const todoInput = event.currentTarget.elements.namedItem("todo")! as HTMLInputElement;
+    const todoInput = event.currentTarget.elements.namedItem(
+      "todo"
+    )! as HTMLInputElement;
 
-    setTodos(t => {
-        return [...t, todoInput.value]
-    })
+    setTodos((t) => {
+      return [...t, todoInput.value];
+    });
 
     console.log(todos);
-    
+  }
+  function resetAllTodos() {
+    setTodos([]);
   }
   return (
     <div>
       <form onSubmit={addNewTodo}>
         <input type="text" name="todo" placeholder="Add Task..." />
         <button>send</button>
-        <button>reset</button>
+        <button type="button" onClick={resetAllTodos}>
+          reset
+        </button>
       </form>
       <ul>
         {todos.map((todo, i) => {
-            return <ToDoItem key={i} todo={todo}/>
+          return <ToDoItem key={i} todo={todo} />;
         })}
-        
       </ul>
     </div>
   );
