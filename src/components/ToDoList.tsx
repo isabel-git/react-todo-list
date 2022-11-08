@@ -34,10 +34,6 @@ export function ToDoList() {
     });
   }
 
-//   function onInputChange(index: number) {
-    
-//   }
-
   return (
     <div>
       <form onSubmit={addNewTodo}>
