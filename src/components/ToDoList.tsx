@@ -6,15 +6,13 @@ export function ToDoList() {
 
   function addNewTodo(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const todoInput = event.currentTarget.elements.namedItem(
-      "todo"
-    )! as HTMLInputElement;
-
+    const todoInput = event.currentTarget.elements.namedItem("todo")! as HTMLInputElement;
+	const todo =  todoInput.value
     setTodos((t) => {
-      return [...t, todoInput.value];
+      return [...t, todo];
     });
 
-    console.log(todos);
+    todoInput.value = ''
   }
   function resetAllTodos() {
     setTodos([]);
