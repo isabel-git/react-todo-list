@@ -1,3 +1,7 @@
 body {
     text-align: center;
 }
+
+.is-checked {
+    text-decoration:line-through;
+}

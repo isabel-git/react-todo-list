@@ -4,12 +4,15 @@ import { ToDoItem } from "./ToDoItem";
 export function ToDoList() {
   const [todos, setTodos] = useState<string[]>([]);
 
+
   function addNewTodo(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const todoInput = event.currentTarget.elements.namedItem("todo")! as HTMLInputElement;
     const todo = todoInput.value;
     setTodos((t) => {
-
+      if (!todo) {
+        return [];
+      }
       return [...t, todo];
     });
 
@@ -28,6 +31,10 @@ export function ToDoList() {
     });
   }
 
+//   function onInputChange(index: number) {
+    
+//   }
+
   return (
     <div>
       <form onSubmit={addNewTodo}>
@@ -45,6 +52,7 @@ export function ToDoList() {
               index={index}
               todo={todo}
               onDelete={deleteTodo}
+			  isChecked={false}
             />
           );
         })}
