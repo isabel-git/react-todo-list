@@ -1,7 +1,14 @@
 export type ToDoItemProps = {
-    todo: string
-}
+  todo: string;
+  index: number;
+  onDelete: (index: number) => void;
+};
 
-export function ToDoItem({todo} : ToDoItemProps) {
-  return <li>{todo}</li>;
+export function ToDoItem({ todo, index, onDelete }: ToDoItemProps) {
+  return (
+    <li>
+      {todo}
+      <button onClick={() => onDelete(index)}>X</button>
+    </li>
+  );
 }

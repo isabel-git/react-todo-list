@@ -7,16 +7,27 @@ export function ToDoList() {
   function addNewTodo(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const todoInput = event.currentTarget.elements.namedItem("todo")! as HTMLInputElement;
-	const todo =  todoInput.value
+    const todo = todoInput.value;
     setTodos((t) => {
+
       return [...t, todo];
     });
 
-    todoInput.value = ''
+    todoInput.value = "";
   }
+
   function resetAllTodos() {
     setTodos([]);
   }
+
+  function deleteTodo(index: number) {
+    setTodos((t) => {
+      return t.filter((t, i) => {
+        return i !== index;
+      });
+    });
+  }
+
   return (
     <div>
       <form onSubmit={addNewTodo}>
@@ -27,8 +38,15 @@ export function ToDoList() {
         </button>
       </form>
       <ul>
-        {todos.map((todo, i) => {
-          return <ToDoItem key={i} todo={todo} />;
+        {todos.map((todo, index) => {
+          return (
+            <ToDoItem
+              key={index}
+              index={index}
+              todo={todo}
+              onDelete={deleteTodo}
+            />
+          );
         })}
       </ul>
     </div>
