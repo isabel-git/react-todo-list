@@ -1,4 +1,10 @@
+import { ToDoList } from "./components/ToDoList";
+
 export function App() {
-    return <>
+  return (
+    <>
+      <h1>My Todo App</h1>
+      <ToDoList />
     </>
+  );
 }
