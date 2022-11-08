@@ -1,7 +1,9 @@
 import { useState } from "react";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export type ToDoItemProps = {
   todo: string;
@@ -26,7 +28,9 @@ export function ToDoItem({ todo, index, isChecked, onDelete }: ToDoItemProps) {
       </Grid>
 
       <Grid item xs={4}>
-        <Button onClick={() => onDelete(index)}>X</Button>
+        <IconButton aria-label="delete" color="primary" onClick={() => onDelete(index)}>
+          <DeleteIcon />
+        </IconButton>
       </Grid>
     </Grid>
   );
