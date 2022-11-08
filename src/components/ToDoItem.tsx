@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import Grid from "@mui/material/Grid";
 
 export type ToDoItemProps = {
   todo: string;
@@ -16,10 +19,15 @@ export function ToDoItem({ todo, index, isChecked, onDelete }: ToDoItemProps) {
   }
 
   return (
-    <li>
-      <input type="checkbox" checked={checkedTask} onChange={onChangeInput} />
-      <span className={checkedTask ? "is-checked" : ""}>{todo}</span>
-      <button onClick={() => onDelete(index)}>X</button>
-    </li>
+    <Grid container spacing={10} component="li">
+      <Grid item xs={8}>
+        <Checkbox checked={checkedTask} onChange={onChangeInput} />
+        <span className={checkedTask ? "is-checked" : ""}>{todo}</span>
+      </Grid>
+
+      <Grid item xs={4}>
+        <Button onClick={() => onDelete(index)}>X</Button>
+      </Grid>
+    </Grid>
   );
 }

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 import { ToDoItem } from "./ToDoItem";
 
 export function ToDoList() {
@@ -38,12 +41,13 @@ export function ToDoList() {
   return (
     <div>
       <form onSubmit={addNewTodo}>
-        <input type="text" name="todo" placeholder="Add Task..." />
-        <button>send</button>
-        <button type="button" onClick={resetAllTodos}>
+        <TextField name="todo"  id="standard-basic" size="small"  label="Add Task..." variant="standard"/>{' '}
+        <Button type="submit" variant="contained">send</Button>{' '}
+        <Button type="button" variant="contained" onClick={resetAllTodos}>
           reset
-        </button>
+        </Button>
       </form>
+	  
       <ul>
         {todos.map((todo, index) => {
           return (

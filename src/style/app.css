@@ -1,7 +1,18 @@
-body {
-    text-align: center;
+.container {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
 }
-
+form {
+    margin: 1rem 3rem 3rem 0;
+}
+ul {
+    margin: 0; padding: 0;
+    list-style-type: none;
+}
+li {
+    margin-bottom: 2rem;
+}
 .is-checked {
     text-decoration:line-through;
 }
